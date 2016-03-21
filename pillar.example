@@ -1,0 +1,4 @@
+graylog:
+  elasticsearch:
+    cluster-name: graylog-development
+    network-host: localhost
