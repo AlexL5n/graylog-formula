@@ -1,4 +1,4 @@
-mongodb-repo:
+graylog-mongodb-repo:
   cmd.run:
     - name: |
         apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
@@ -7,3 +7,6 @@ mongodb-repo:
     - onlyif:
       - apt-cache show mongodb-org | grep "Version:" | awk -F ":" '$2 ~ /^ 3.*$/ { exit 1 }'
 
+graylog-install-mongodb-org:
+  pkg.installed:
+    - name: mongodb-org

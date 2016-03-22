@@ -1,27 +1,27 @@
-graylog-server-gdebi:
+graylog-web-gdebi:
   pkg.installed:
     - name: gdebi
     - onlyif:
       - apt-cache show graylog-server | grep "Version:" | awk -F ":" '$2 ~ /^ 1\.3.*$/ { exit 1 }'
 
-graylog-server-deb-file:
+graylog-web-deb-file:
   file.managed:
     - name: /tmp/graylog-1.3-repository-ubuntu14.04_latest.deb
     - source: salt://graylog/files/graylog-1.3-repository-ubuntu14.04_latest.deb
     - require:
-      - pkg: graylog-server-gdebi
+      - pkg: gdebi
     - onlyif:
       - apt-cache show graylog-server | grep "Version:" | awk -F ":" '$2 ~ /^ 1\.3.*$/ { exit 1 }'
 
-graylog-server-cmd-gdebi:
+graylog-web-cmd-gdebi:
   cmd.run:
     - name: gdebi -n /tmp/graylog-1.3-repository-ubuntu14.04_latest.deb
     - require:
-      - pkg: graylog-server-gdebi
+      - pkg: gdebi
     - onlyif:
       - apt-cache show graylog-server | grep "Version:" | awk -F ":" '$2 ~ /^ 1\.3.*$/ { exit 1 }'
 
-graylog-server-apt-update:
+graylog-web-apt-update:
   cmd.run:
     - name: apt-get update
     - onlyif:

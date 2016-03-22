@@ -13,7 +13,7 @@ oracle-license-select:
     - data:
         'shared/accepted-oracle-license-v1-1': {'type': 'boolean', 'value': 'true'}
 
-elasticsearch_repo:
+elasticsearch-repo:
   pkgrepo.managed:
     - humanname: Elasticsearch Official Debian Repository
     - name: deb http://packages.elastic.co/elasticsearch/1.7/debian stable main

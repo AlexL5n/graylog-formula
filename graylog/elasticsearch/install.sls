@@ -4,12 +4,13 @@ oracle-java8-installer:
     - require:
       - pkgrepo: oracle-ppa
 
-elasticsearch:
+elasticsearch-install:
   pkg.installed:
+    - name: elasticsearch
     - require:
       - pkg: oracle-java8-installer
-      - pkgrepo: elasticsearch_repo
 
-elasticsearch:
+elasticsearch-service:
   service.running:
+    - name: elasticsearch
     - enable: true
