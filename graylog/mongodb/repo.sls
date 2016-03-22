@@ -6,7 +6,3 @@ graylog-mongodb-repo:
         apt-get update
     - onlyif:
       - apt-cache show mongodb-org | grep "Version:" | awk -F ":" '$2 ~ /^ 3.*$/ { exit 1 }'
-
-graylog-install-mongodb-org:
-  pkg.installed:
-    - name: mongodb-org
