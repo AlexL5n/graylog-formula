@@ -209,7 +209,7 @@ cluster.name: {{ salt['pillar.get']('graylog:elasticsearch:cluster-name', 'grayl
 
 # Set both 'bind_host' and 'publish_host':
 #
-network.host: {{ salt['pillar.get']('graylog:elasticsearch:network-host', 'localhost') }}
+network.host: {{ salt['pillar.get']('graylog:elasticsearch:host', 'localhost') }}
 
 # Set a custom port for the node to node communication (9300 by default):
 #
@@ -318,12 +318,13 @@ network.host: {{ salt['pillar.get']('graylog:elasticsearch:network-host', 'local
 #
 # 1. Disable multicast discovery (enabled by default):
 #
-#discovery.zen.ping.multicast.enabled: false
+discovery.zen.ping.multicast.enabled: false
 #
 # 2. Configure an initial list of master nodes in the cluster
 #    to perform discovery when new nodes (master or data) are started:
 #
-#discovery.zen.ping.unicast.hosts: ["host1", "host2:port"]
+
+discovery.zen.ping.unicast.hosts: {{ salt['pillar.get']('graylog:elasticsearch:host', 'localhost') }}:9300
 
 # EC2 discovery allows to use AWS EC2 API in order to perform discovery.
 #

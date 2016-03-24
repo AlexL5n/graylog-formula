@@ -1,8 +1,10 @@
 graylog:
   elasticsearch:
+    host: 192.168.56.103
     cluster-name: graylog-development
     network-host: localhost
   graylog-server:
+    host: 192.168.56.104
     password_secret: C5pz4LOx7DsDNg0ltAMR78ovKmtTXcATFnzIGIMKO4lNNcXIRrs9xhZHCF1HeQ4Gk58CxBsjn7pBp89lNt4z9Mj6SHFw5w2V
     root_password_sha2: 5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8 # echo -n password | shasum -a 256 | awk '{print $1}'
     rest_transport_uri: "http://127.0.0.1:12900/"
@@ -10,5 +12,8 @@ graylog:
     elasticsearch_discovery_zen_ping_multicast_enabled: false
     elasticsearch_discovery_zen_ping_unicast_hosts: "127.0.0.1:9300"
   graylog-web:
+    host: 192.168.56.105
     graylog2-server_uris: "http://127.0.0.1:12900/"
     application_secret: IDJS03cC6dwkOkONdc3brwkyCMV9zW4riOUlDZJd0N3rzn1pz4YPnA4m2vu0MFjMtPqJYIQJxHocGnzrennNU0yHvR2wPuhe
+  mongodb:
+    host: 127.0.0.1
